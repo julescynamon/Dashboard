@@ -7,9 +7,10 @@ const DashboardContextProvider = (props) => {
 	const [dataChart, setDataChart] = useState(fulldata["2020"]);
 	const [yearData, setYearData] = useState("2020");
 
-    const changeYear = (el) => {
-
-    }
+	const changeYear = (el) => {
+		setYearData(el.target.value);
+		setDataChart(fulldata[el.target.value]);
+	};
 
 	return (
 		<DashboardContext.Provider value={{ changeYear, dataChart, yearData }}>
@@ -17,3 +18,5 @@ const DashboardContextProvider = (props) => {
 		</DashboardContext.Provider>
 	);
 };
+
+export default DashboardContextProvider;
